@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="900.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.unicas.project.template.address.view.RootLayoutController">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="0" styleClass="menu-bar" BorderPane.alignment="CENTER">
+            <children>
+
+                <MenuBar HBox.hgrow="ALWAYS" style="-fx-background-color: transparent;">
+                    <menus>
+
+                        <Menu mnemonicParsing="false">
+                            <graphic>
+                                <Label onMouseClicked="#handleGoHome">
+                                    <graphic>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true"
+                                                   preserveRatio="false">
+                                            <image>
+                                                <Image url="@../../../../../../../resources/images/home.png"/>
+                                            </image>
+                                            <effect>
+                                                <ColorAdjust brightness="1.0"/>
+                                            </effect>
+                                        </ImageView>
+                                    </graphic>
+                                    <tooltip>
+                                        <Tooltip text="Torna alla Home"/>
+                                    </tooltip>
+                                </Label>
+                            </graphic>
+                        </Menu>
+
+                        <Menu mnemonicParsing="false" text="Main">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleSettings" text="Impostazioni">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP"
+                                                            shortcut="UP"/>
+                                    </accelerator>
+                                </MenuItem>
+                                <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Esci"/>
+                            </items>
+                        </Menu>
+
+                        <Menu mnemonicParsing="false" text="Statistiche">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleShowMovimentiStatistics"
+                                          text="Carichi e scarichi dell'ultimo mese"/>
+                                <MenuItem mnemonicParsing="false" onAction="#handleShowProdottiStatistics"
+                                          text="Prodotti più movimentati"/>
+                            </items>
+                        </Menu>
+
+
+                        <Menu mnemonicParsing="false" text="Esporta">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleExportProdotti"
+                                          text="Inventario Prodotti (.csv)"/>
+                                <MenuItem mnemonicParsing="false" onAction="#handleExportMovimenti"
+                                          text="Storico Movimenti (.csv)"/>
+                            </items>
+                        </Menu>
+
+                        <Menu mnemonicParsing="false" text="Aiuto">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="Informazioni"/>
+                            </items>
+                        </Menu>
+
+                    </menus>
+                </MenuBar>
+
+            </children>
+        </HBox>
+    </top>
+</BorderPane>

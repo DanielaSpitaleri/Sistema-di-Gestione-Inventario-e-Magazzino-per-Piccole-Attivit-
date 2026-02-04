@@ -1,0 +1,293 @@
+/* --- 1. VARIABILI DI COLORE (CRUCIALI) --- */
+.root {
+    /* Sfondo molto scuro, quasi nero */
+    -primary-dark: #121212;
+    /* Colore secondario/superfici */
+    -secondary-dark: #1e1e1e;
+    /* Colore di accento caldo (Arancione/Giallo) */
+    -accent-color: #ff9900;
+    /* Testo principale (bianco puro) */
+    -text-color-bright: #ffffff;
+    /* Testo secondario (quasi bianco puro) */
+    -text-color-faded: #d6d8dcff;
+
+    /* colore del focus: arancione morbido */
+    -fx-focus-color: rgba(255, 153, 0, 0.9);
+
+    /* alone di focus molto soft (quasi impercettibile) */
+    -fx-faint-focus-color: rgba(255, 153, 0, 0.25);
+
+    /* colore della selezione (menu, table, ecc.) */
+    -fx-selection-bar: #453f3f;  /* grigio scuro elegante */
+
+    /* selezione quando non è attivo il focus */
+    -fx-selection-bar-non-focused: #1f1f1f; /* ancora più scuro */
+}
+
+.background {
+    -fx-background-color: -primary-dark;
+}
+
+/* --- 2. ELEMENTI TESTUALI --- */
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: -text-color-faded;
+}
+
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: -text-color-bright;
+    -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 30pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: -text-color-bright; /* Intestazioni grandi bianche */
+}
+
+/* --- 3. TABELLA (TABLEVIEW) --- */
+
+.table-view {
+    -fx-base: -secondary-dark;
+    -fx-control-inner-background: -secondary-dark;
+    -fx-background-color: -secondary-dark;
+    /* Bordi quasi invisibili o molto scuri */
+    -fx-table-cell-border-color: #2a2a2a;
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -primary-dark;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 12pt;
+    -fx-text-fill: -text-color-faded; /* Intestazione colonna grigia */
+}
+
+/* Colore della riga selezionata ad alto contrasto */
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -accent-color; /* Usa l'arancione come highlight */
+    -fx-text-fill: -primary-dark; /* Testo scuro sulla selezione */
+}
+
+/* --- 4. PULSANTI (BUTTON) e CAMPI DI INSERIMENTO --- */
+
+.button:focused {
+    /* Mantiene gli stessi margini interni (padding) ed esterni (insets) */
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 3, 2, 1;
+}
+/* --- BUTTON BASE --- */
+.button {
+    -fx-padding: 8 15 8 15;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+
+    -fx-background-color: #1e1e1e; /* colore base */
+    -fx-border-color: #555555;
+    -fx-border-width: 1;
+
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 10pt;
+    -fx-text-fill: -text-color-bright;
+
+    -fx-effect: dropshadow(gaussian, transparent, 0, 0, 0, 0);
+}
+
+/* --- HOVER (leggero sollevamento + bordo acceso) --- */
+.button:hover {
+    -fx-background-color: #2a2a2a; /* più chiaro */
+    -fx-border-color: -accent-color; /* arancione */
+    /*-fx-effect: dropshadow(gaussian, -accent-color, 10, 0.2, 0, 0); CAUSA TREMOLIO A DATAPICKER */
+}
+
+/* --- PREMUTO (più scuro + effetto click) --- */
+.button:pressed {
+    -fx-background-color: #141414;
+    /*-fx-translate-y: 1;*/
+    /*-fx-effect: none;*/
+}
+
+/* --- BUTTON DI DEFAULT (Arancione) --- */
+.button:default {
+    -fx-background-color: #ff9900;
+    -fx-text-fill: #121212;
+    -fx-border-color: #cc7a00;
+}
+
+/* --- DEFAULT HOVER --- */
+.button:default:hover {
+    -fx-background-color: #ffb84d;
+    -fx-effect: dropshadow(gaussian, #ff9900, 12, 0.4, 0, 0);
+}
+
+
+/* --- 6. STILE SPECIFICO PER IL TASTO HOME --- */
+
+.home-button {
+    /* Rende lo sfondo trasparente a riposo (come i Menu 'Main', 'Statistics', ecc.) */
+    -fx-background-color: transparent;
+
+    /* Rimuove i bordi che hai impostato nella classe .button generica */
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+
+    /* Rimuove l'arrotondamento per renderlo rettangolare come i menu */
+    -fx-background-radius: 0;
+
+    /* Allinea il padding a quello standard dei menu */
+    -fx-padding: 5 10 5 10;
+}
+
+/* Comportamento quando il mouse passa sopra (HOVER) */
+.home-button:hover {
+    /* Usa un grigio scuro per l'evidenziazione, simile ai menu standard in questo tema */
+    -fx-background-color: #333333;
+
+    /* Se vuoi usare esattamente il colore delle tue "superfici", usa questa riga invece: */
+    /* -fx-background-color: -secondary-dark; */
+}
+
+/* Comportamento quando il tasto viene premuto */
+.home-button:pressed {
+    /* Un leggero feedback visivo quando clicchi */
+    -fx-background-color: derive(#333333, -10%);
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-background-color: -primary-dark; /* Sfondo campo molto scuro */
+    -fx-text-fill: -text-color-bright;
+    -fx-border-color: #555555; /* Bordi sottili */
+    -fx-border-radius: 2;
+    -fx-border-width: 1;
+}
+.button {
+    -fx-border-width: 1;
+}
+
+.button:hover {
+    -fx-border-color: -accent-color;
+}
+
+/* --- 5. MENU BAR --- */
+.menu-bar {
+    -fx-background-color:#2a2a2a; /* Sfondo scuro */
+    -fx-border-color: -accent-color; /* Aggiunge un bordo superiore sottile di accento */
+    -fx-border-width: 0 0 1 0;
+}
+
+
+.menu-bar .label {
+    -fx-font-size: 11pt;
+    -fx-text-fill: -text-color-faded;
+}
+
+.context-menu {
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #555555;
+    -fx-border-width: 1;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+    -fx-padding: 6 15;
+}
+
+.menu-item .label {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI";
+}
+
+.menu:focused, .menu:showing {
+    -fx-background-color: #333333;
+    -fx-effect: none;
+}
+
+.menu-item:focused {
+    -fx-background-color: #333333;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: -accent-color;
+}
+
+/* Quando il mouse passa sopra un Menu della MenuBar */
+.menu:hover > .label {
+    -fx-text-fill: -text-color-bright; /* diventa bianco */
+    -fx-font-weight: bold;             /* diventa grassetto */
+}
+
+/* Quando il menu è aperto (showing = equivalente a hover ma interno di JavaFX) */
+.menu:showing > .label {
+    -fx-text-fill: -text-color-bright;
+    -fx-font-weight: bold;
+}
+
+/* SPLIT PANE */
+/* Questa regola gestisce il divisore verticale (tra Elenco Prodotti e Dettagli Prodotto) */
+.split-pane:horizontal > .split-pane-divider {
+    /* Imposta il colore di sfondo del divisore a quello delle superfici scure */
+    -fx-background-color: -secondary-dark;
+    -fx-border-color: -primary-dark; /* Rimuove il bordo che può apparire bianco */
+}
+
+/* Questa regola gestisce il divisore orizzontale */
+.split-pane:vertical > .split-pane-divider {
+    /* Imposta il colore di sfondo del divisore a quello delle superfici scure */
+    -fx-background-color: -secondary-dark; /* O usa un colore fisso come #1e1e1e */
+    -fx-border-color: -primary-dark; /* Rimuove il bordo che può apparire bianco */
+}
+
+/* Questa regola gestisce il padding/margine esterno del pannello split */
+.split-pane {
+    -fx-padding: 0; /* Assicurati che non ci sia padding bianco */
+}
+
+
+/* --- CHOICE BOX --- */
+
+.choice-box {
+    /* Sfondo chiaro (necessario se vuoi la scritta nera) */
+    -fx-background-color: white;
+    -fx-border-color: #555555;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+}
+
+/* Questa regola serve per colorare la scritta selezionata */
+.choice-box > .label {
+    -fx-text-fill: black !important; /* Forza il colore nero */
+}
+
+/* Questa regola serve per colorare la freccetta a destra */
+.choice-box .open-button .arrow {
+    -fx-background-color: black;
+}
+
+/* (Opzionale) Se vuoi che anche il menu a tendina quando si apre abbia scritte nere */
+.choice-box .context-menu {
+    -fx-background-color: white;
+}
+.choice-box .menu-item:focused {
+    -fx-background-color: #dddddd; /* Colore selezione grigio chiaro */
+}
+.choice-box .menu-item .label {
+    -fx-text-fill: black;
+}
+
+/* --- DATE PICKER --- */
+
+.date-picker .month-year-pane .label,
+.date-picker .month-year-pane .combo-box .label,
+.date-picker .month-year-pane .combo-box .button .label,
+.date-picker-popup .label,
+.date-picker .popup-content .label {
+    -fx-text-fill: black;
+}
+
