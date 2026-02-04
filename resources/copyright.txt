@@ -1,0 +1,12 @@
+Copyright by  http://www.boxicons.com/
+- delete.png
+- edit.png
+- exit.png
+- home.png
+- key.png
+- logo.png
+- logoBW.png
+- move.png
+- new.png
+- search.png
+- statistics.png
