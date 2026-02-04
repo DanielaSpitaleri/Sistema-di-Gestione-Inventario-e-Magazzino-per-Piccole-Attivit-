@@ -48,10 +48,4 @@ La cartella `db/` contiene gli script SQL necessari per l'inizializzazione.
 > Per accedere alla dashboard principale dopo l'avvio, utilizzare la seguente credenziale: \
 > **Password di accesso (Demo): `123`**
 
----
 
-### 👥 Contributori
-
-**Autori:** Cristian Corsini, Simone Feola, Daniela Spitaleri
-
----
